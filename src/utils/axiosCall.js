@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Create axios instance with default config
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || "http://localhost:7000/api", // Use env variable
+  baseURL: import.meta.env.VITE_API_BASE_URL || "https://www.vintagefashion.site/api", // Use env variable
   withCredentials: true, // Ensures cookies are sent in requests
   headers: {
     "Content-Type": "application/json",
