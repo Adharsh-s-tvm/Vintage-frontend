@@ -8,7 +8,7 @@ import { downloadInvoiceApi, fetchOrderDetailsApi, userReturnOrderItemApi } from
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '../../ui/Dialog';
 import { Label } from '../../ui/Label';
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '../../ui/Select';
-import { Textarea } from '../../ui/Textarea';
+import { Textarea } from '../../ui/TextArea';
 
 export default function OrderDetails() {
   const { orderId } = useParams();

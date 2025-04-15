@@ -24,7 +24,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "../../ui/Pagination";
+} from "../../ui/pagination";
 import { useSearchParams } from 'react-router-dom';
 import { debounce } from 'lodash';
 import { fetchReturnsApi, updateReturnApi } from '../../services/api/adminApis/returnApi';
