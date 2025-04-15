@@ -12,21 +12,13 @@ import {
 } from 'lucide-react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { toast } from '../../hooks/useToast';
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from '../../ui/Tabs';
-import { RadioGroup, RadioGroupItem } from '../../ui/RadioGroup';
 import { Separator } from '../../ui/Separator';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "../../ui/accordion";
-import { ChevronDown } from 'lucide-react';
+} from "../../ui/Accordion";
 import { useDispatch, useSelector } from 'react-redux';
 import { addToWishlist } from '../../redux/slices/wishlistSlice';
 import { cn } from '../../lib/util';
