@@ -27,13 +27,6 @@ import {
 } from '../../ui/pagination';
 import { toast } from '../../hooks/useToast';
 import { useDispatch } from 'react-redux';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "../../ui/dialog";
 import { debounce } from 'lodash';
 import { globalSearchApi, productsListfetchBrands, productsListfetchCategories, productsListfetchProducts, productsListHandleSearch } from '../../services/api/userApis/userProductApi';
 
