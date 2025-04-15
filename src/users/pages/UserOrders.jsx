@@ -33,7 +33,7 @@ import { Label } from "../../ui/Label";
 import { Textarea } from "../../ui/TextArea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../ui/Select";
 import { Input } from '../../ui/Input';
-import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '../../ui/Pagination';
+import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '../../ui/pagination';
 import { debounce } from 'lodash';
 import { useSearchParams } from 'react-router-dom';
 import { userCancelOrderApi, userfetchOrdersApi, userReturnOrderApi } from '../../services/api/userApis/userOrderApi';

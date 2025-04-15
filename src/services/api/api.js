@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:7000/api';
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://www.vintagefashion.site/api";
+console.log(API_BASE_URL)
 // Public API (No Authorization Header)
 export const API = axios.create({
   baseURL: API_BASE_URL,
@@ -11,7 +11,10 @@ export const API = axios.create({
 API.interceptors.request.use(
   (config) => {
     // Do something before request is sent
+    console.log("config", config);
+    
     return config;
+
   },
   (error) => {
     // Do something with request error
