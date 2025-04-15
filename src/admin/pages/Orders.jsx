@@ -10,7 +10,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "../../ui/Pagination";
+} from "../../ui/pagination";
 import {
   Table,
   TableBody,
