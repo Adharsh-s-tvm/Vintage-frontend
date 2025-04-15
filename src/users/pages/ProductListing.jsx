@@ -12,7 +12,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '../../ui/select';
+} from '../../ui/Select';
 import { useSearchParams, useNavigate } from 'react-router';
 import { Categories } from '../layout/Categories';
 import { Slider } from "../../ui/slider";
