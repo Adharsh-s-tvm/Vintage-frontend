@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { Layout } from '../layout/Layout';
-import { Card } from '../../ui/card';
+import { Card } from '../../ui/Card';
 import { Button } from '../../ui/button';
 import { ShoppingCart, Heart, Star, ChevronLeft, ChevronRight, Search, X, StarHalf, Menu } from 'lucide-react';
 import { cn } from '../../lib/util';
