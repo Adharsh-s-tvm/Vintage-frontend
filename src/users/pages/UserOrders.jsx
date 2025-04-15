@@ -30,7 +30,7 @@ import {
   AlertDialogTitle,
 } from "../../ui/AlertDialog";
 import { Label } from "../../ui/Label";
-import { Textarea } from "../../ui/Textarea";
+import { Textarea } from "../../ui/TextArea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../ui/Select";
 import { Input } from '../../ui/Input';
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '../../ui/Pagination';
