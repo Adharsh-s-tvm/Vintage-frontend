@@ -29,7 +29,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "../../ui/Pagination";
+} from "../../ui/pagination";
 import { useSearchParams } from 'react-router-dom';
 import { downloadSalesReportApi, fetchSalesDataApi } from '../../services/api/adminApis/indexApi';
 import { set } from 'date-fns';
