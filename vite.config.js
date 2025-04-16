@@ -14,8 +14,10 @@ export default defineConfig({
     })
     ],
   build: {
+    
     rollupOptions: {
       output: {
+        minify: false,
         manualChunks(id) {
           if (id.includes('node_modules')) {
             if (id.includes('react')) return 'vendor_react';

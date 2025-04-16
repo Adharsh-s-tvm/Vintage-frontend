@@ -6,6 +6,8 @@ import store from './redux/store.js'
 import './App.css'
 import ErrorBoundary from './utils/errorBoundary.jsx'
 
+console.log("App is mounting...");
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
