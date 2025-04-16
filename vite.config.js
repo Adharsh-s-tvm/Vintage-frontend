@@ -15,17 +15,17 @@ export default defineConfig({
     ],
   build: {
     
+    minify: false,
     rollupOptions: {
-      output: {
-        minify: false,
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            if (id.includes('react')) return 'vendor_react';
-            if (id.includes('axios')) return 'vendor_axios';
-            return 'vendor';
-          }
-        },
-      },
+      // output: {
+      //   manualChunks(id) {
+      //     if (id.includes('node_modules')) {
+      //       if (id.includes('react')) return 'vendor_react';
+      //       if (id.includes('axios')) return 'vendor_axios';
+      //       return 'vendor';
+      //     }
+      //   },
+      // },
     },
   },
   server: {
