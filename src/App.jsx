@@ -7,6 +7,7 @@ import { TooltipProvider } from "./ui/Tooltip";
 import { Toaster } from "./ui/Toaster";
 import { Toaster as Sonner } from "sonner"
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import React from "react";
 
 const queryClient = new QueryClient();
 
