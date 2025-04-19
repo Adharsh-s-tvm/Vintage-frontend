@@ -1,7 +1,7 @@
 import { api } from '../../lib/apiCall';
 import axios from 'axios';
 
-const API_URL = `https://www.vintagefashion.site/api`;
+const API_URL = `https://13.232.195.174/api`;
 
 export const loginUser = async (email, password) => {
     try {

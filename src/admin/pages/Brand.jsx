@@ -6,7 +6,7 @@ import { useSearchParams } from 'react-router-dom';
 import { debounce } from 'lodash';
 import { addBrandApi, changeStatusApi, fetchBrandsApi, updateBrandApi } from "../../services/api/adminApis/brandApi";
 
-const API_BASE_URL = 'https://www.vintagefashion.site/api';
+const API_BASE_URL = 'https://13.232.195.174/api';
 
 const Brand = () => {
   const [brands, setBrands] = useState([]);
