@@ -753,7 +753,7 @@ export default function ProductDetail() {
             </AccordionItem>
 
             {/* Coupons Accordion */}
-            <AccordionItem value="coupons">
+            {/* <AccordionItem value="coupons">
               <AccordionTrigger className="hover:no-underline">
                 <div className="flex items-center space-x-4">
                   <h3 className="text-lg font-medium">Available Coupons</h3>
@@ -798,7 +798,7 @@ export default function ProductDetail() {
                   ))}
                 </div>
               </AccordionContent>
-            </AccordionItem>
+            </AccordionItem> */}
 
             {/* Shipping Info Accordion */}
             <AccordionItem value="shipping">
