@@ -36,7 +36,7 @@ import {
 import { updateUserStatusApi } from '../../services/api/adminApis/usersListApi';
 
 // Define the API base URL - replace with your actual API URL
-const API_BASE_URL = 'https://www.vintagefashion.site/api'; // Adjust this to match your backend URL
+const API_BASE_URL = 'https://www.vintagefashion.site'; // Adjust this to match your backend URL
 
 export function UsersTable({ users, onUserUpdated, fetchUsers }) {
     const [isLoading, setIsLoading] = useState(false);
