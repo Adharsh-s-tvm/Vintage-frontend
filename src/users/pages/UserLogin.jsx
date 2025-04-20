@@ -180,7 +180,7 @@ export default function SignIn() {
               <Input
                 id="email"
                 type="email"
-                placeholder="name@example.com"
+                placeholder=""
                 className="pl-10"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -205,7 +205,7 @@ export default function SignIn() {
               <Input
                 id="password"
                 type={showPassword ? 'text' : 'password'}
-                placeholder="••••••••"
+                placeholder=""
                 className="pl-10"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
