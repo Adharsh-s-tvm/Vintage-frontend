@@ -1,7 +1,7 @@
 import { api } from '../../lib/apiCall';
 import axios from 'axios';
 
-const API_URL = `https://www.vintagefashion.site/api`;
+const API_URL = import.meta.env.VITE_API_BASE_URL
 
 export const loginUser = async (email, password) => {
     try {
