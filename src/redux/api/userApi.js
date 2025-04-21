@@ -8,7 +8,12 @@ export const loginUser = async (email, password) => {
         const response = await axios.post(
             `${API_URL}/login`,
             { email, password },
-            { withCredentials: true }
+            {
+                withCredentials: true,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
         );
         if (response.data && !response.data.token) {
             const cookies = document.cookie.split(';');
