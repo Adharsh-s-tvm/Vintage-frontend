@@ -39,9 +39,7 @@ const DEFAULT_SIZES = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL', '4XL'];
 
 
 const ProductListing = () => {
-
   const [showMobileFilters, setShowMobileFilters] = useState(false);
-
   const [activeImage, setActiveImage] = useState({});
   const [categories, setCategories] = useState([])
   const [brands, setBrands] = useState([]);
@@ -111,12 +109,12 @@ const ProductListing = () => {
     }
   }, [searchParams]);
 
-  
+
 
   const fetchProducts = async (params) => {
     try {
       const queryParams = new URLSearchParams(params);
-      queryParams.set('page', currentPage); 
+      queryParams.set('page', currentPage);
       queryParams.set('limit', itemsPerPage);
 
       // Add search query if it exists
@@ -237,7 +235,7 @@ const ProductListing = () => {
       console.log("Category fetched :", response.data)
       const categoriesData = response.data.categories || response.data;
       // Filter out blocked categories and not listed categories
-      const activeCategories = categoriesData.filter(category => 
+      const activeCategories = categoriesData.filter(category =>
         !category.isBlocked && category.status !== 'Not listed'
       );
       setCategories(activeCategories);
@@ -252,7 +250,7 @@ const ProductListing = () => {
       console.log('Brands response:', response.data);
       const brandsData = response.data.brands || response.data;
       // Filter out blocked brands and brands with 'Not listed' status
-      const activeBrands = brandsData.filter(brand => 
+      const activeBrands = brandsData.filter(brand =>
         !brand.isBlocked && brand.status !== 'Not listed'
       );
       setBrands(activeBrands);
@@ -625,17 +623,17 @@ const ProductListing = () => {
     return stars;
   };
 
-  
+
 
   // Add this function to handle wishlist
-  
+
 
   // Modify the price display in the product card
   const PriceDisplay = ({ originalPrice, discountPrice }) => {
     if (!originalPrice) return null;
-    
+
     const hasValidDiscount = discountPrice && discountPrice > 0 && discountPrice < originalPrice;
-    
+
     return (
       <div className="flex items-center gap-2">
         <span className="font-bold text-lg">
@@ -665,9 +663,9 @@ const ProductListing = () => {
         const { data } = await globalSearchApi(searchTerm)
         if (data.success && Array.isArray(data.products)) {
           // Filter out products with no variants or blocked products
-          const validProducts = data.products.filter(product => 
-            product.variants && 
-            product.variants.length > 0 && 
+          const validProducts = data.products.filter(product =>
+            product.variants &&
+            product.variants.length > 0 &&
             !product.isBlocked
           );
           setSearchedProducts(validProducts);
@@ -718,48 +716,47 @@ const ProductListing = () => {
 
   return (
     <Layout showSidebar={true} sidebarContent={sidebarContent}>
-    {/* Add Filter Toggle Button for both mobile and desktop */}
-    <div className="md:hidden fixed top-20 left-4 z-50">
-      <Button
-        variant="outline"
-        size="icon"
-        className="rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-200 mt-4"
-        onClick={() => setShowMobileFilters(!showMobileFilters)}
+      {/* <div className="md:hidden fixed top-20 left-4 z-50">
+        <Button
+          variant="outline"
+          size="icon"
+          className="rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-200 mt-4"
+          onClick={() => setShowMobileFilters(!showMobileFilters)}
+        >
+          {showMobileFilters ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+        </Button>
+      </div> */}
+
+      {/* Mobile Filter Overlay */}
+      {/* <div
+        className={cn(
+          "fixed inset-0 bg-black/50 z-40 transition-opacity duration-300",
+          showMobileFilters ? "opacity-100" : "opacity-0 pointer-events-none"
+        )}
+        onClick={() => setShowMobileFilters(false)}
+      /> */}
+
+      {/* Mobile Filter Sidebar */}
+      {/* <div
+        className={cn(
+          "fixed inset-y-0 left-0 w-[80%] max-w-sm bg-white z-50 transform transition-transform duration-300 overflow-auto",
+          showMobileFilters ? "translate-x-0" : "-translate-x-full"
+        )}
       >
-        {showMobileFilters ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-      </Button>
-    </div>
-
-    {/* Mobile Filter Overlay */}
-    <div
-      className={cn(
-        "fixed inset-0 bg-black/50 z-40 transition-opacity duration-300",
-        showMobileFilters ? "opacity-100" : "opacity-0 pointer-events-none"
-      )}
-      onClick={() => setShowMobileFilters(false)}
-    />
-
-    {/* Mobile Filter Sidebar */}
-    <div
-      className={cn(
-        "fixed inset-y-0 left-0 w-[80%] max-w-sm bg-white z-50 transform transition-transform duration-300 overflow-auto",
-        showMobileFilters ? "translate-x-0" : "-translate-x-full"
-      )}
-    >
-      <div className="p-4">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-semibold">Filters</h2>
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setShowMobileFilters(false)}
-          >
-            <X className="h-5 w-5" />
-          </Button>
+        <div className="p-4">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-lg font-semibold">Filters</h2>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setShowMobileFilters(false)}
+            >
+              <X className="h-5 w-5" />
+            </Button>
+          </div>
+          {sidebarContent}
         </div>
-        {sidebarContent}
-      </div>
-    </div>
+      </div> */}
 
       {/* Animated Search Container */}
       <div
@@ -850,7 +847,7 @@ const ProductListing = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-6">
           <div className="relative">
-            
+
             <Input
               type="text"
               // placeholder="Search products..."
@@ -991,24 +988,24 @@ const ProductListing = () => {
                     <span className="text-xs text-gray-500">Color:</span>
                     <div className="flex gap-1">
                       {[...new Set(product.variants.map(v => v.color))].map(color => (
-                        <span 
-                          key={color} 
+                        <span
+                          key={color}
                           className="text-xs bg-gray-100 px-2 py-1 rounded"
                         >
                           {color}
                         </span>
                       ))}
                     </div>
-                    <PriceDisplay 
+                    <PriceDisplay
                       originalPrice={lowestPrice}
                       discountPrice={
                         product.variants
                           .filter(v => v.discountPrice && v.discountPrice > 0 && v.discountPrice < v.price)
                           .length > 0
-                            ? Math.min(...product.variants
-                                .filter(v => v.discountPrice && v.discountPrice > 0 && v.discountPrice < v.price)
-                                .map(v => v.discountPrice))
-                            : null
+                          ? Math.min(...product.variants
+                            .filter(v => v.discountPrice && v.discountPrice > 0 && v.discountPrice < v.price)
+                            .map(v => v.discountPrice))
+                          : null
                       }
                     />
                   </div>
