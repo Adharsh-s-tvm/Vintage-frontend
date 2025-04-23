@@ -213,10 +213,9 @@ function UserAddresses() {
                     ))}
                 </div>
 
-                {/* Add Address Modal */}
                 {showAddModal && (
-                    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                        <div className="bg-white p-6 rounded-lg w-full max-w-md">
+                    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[99999] overflow-y-auto py-6" style={{ isolation: 'isolate' }}>
+                        <div className="bg-white p-6 rounded-lg w-full max-w-md mx-4 my-auto relative shadow-xl">
                             <h2 className="text-xl font-bold mb-4">
                                 {isEditMode ? 'Edit Address' : 'Add New Address'}
                             </h2>
@@ -314,11 +313,12 @@ function UserAddresses() {
                         </div>
                     </div>
                 )}
+                {/* Add Address Modal */}
 
                 {/* Delete Confirmation Modal */}
                 {deleteConfirmation.show && (
-                    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                        <div className="bg-white p-6 rounded-lg w-full max-w-md">
+                    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[9999]">
+                        <div className="bg-white p-6 rounded-lg w-full max-w-md shadow-xl">
                             <h2 className="text-xl font-bold text-red-600 mb-4">
                                 Delete Address
                             </h2>
