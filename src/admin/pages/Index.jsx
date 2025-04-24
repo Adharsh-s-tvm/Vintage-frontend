@@ -6,29 +6,29 @@ import { BarChartCard } from '../dashboard/BarChartCard';
 import { ShoppingBag, ShoppingCart, Clock, XCircle, Tag } from 'lucide-react';
 import { toast } from 'sonner';
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
 } from "../../ui/Select";
 import { DatePicker } from "../../ui/DatePicker";
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
 } from "../../ui/Table";
 import { Button } from "../../ui/Button";
 import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
+    Pagination,
+    PaginationContent,
+    PaginationItem,
+    PaginationLink,
+    PaginationNext,
+    PaginationPrevious,
 } from "../../ui/pagination";
 import { useSearchParams } from 'react-router-dom';
 import { downloadSalesReportApi, fetchSalesDataApi } from '../../services/api/adminApis/indexApi';
@@ -62,13 +62,13 @@ export default function Dashboard() {
     const fetchSalesData = async () => {
         try {
             setLoading(true);
-            
+
             const params = {
                 range: dateRange,
                 page: currentPage,
                 limit: itemsPerPage
             };
-            
+
             if (dateRange === 'custom') {
                 params.startDate = customStartDate.toISOString();
                 params.endDate = customEndDate.toISOString();
@@ -103,7 +103,7 @@ export default function Dashboard() {
     const handleDownloadPDF = async () => {
         try {
             setIsDownloading(true);
-            let params = { 
+            let params = {
                 range: dateRange,
                 format: 'pdf'
             };
@@ -125,9 +125,9 @@ export default function Dashboard() {
             window.URL.revokeObjectURL(url);
 
             setTimeout(() => {
-              
+
                 toast.success('Report downloaded successfully');
-            },3000)
+            }, 3000)
         } catch (error) {
             console.error('Download error:', error);
             toast.error('Failed to download report');
@@ -262,6 +262,7 @@ export default function Dashboard() {
                             data={salesData}
                             className="h-[500px]"
                         />
+
                         <div className="grid grid-cols-3 gap-6 mt-7">
                             <PieChartCard
                                 title="Top Categories by Revenue"
@@ -278,7 +279,93 @@ export default function Dashboard() {
                                 data={topBrands || []}
                                 className="h-[550px]"
                             />
-                         
+
+                        </div>
+
+                        <div className="grid grid-cols-3 gap-6 mt-7">
+                            <div className="bg-white rounded-lg shadow p-6 overflow-auto max-h-[600px]">
+                                <h2 className="text-xl font-semibold mb-4">Top Categories</h2>
+                                <Table>
+                                    <TableHeader className="sticky top-0 bg-white">
+                                        <TableRow>
+                                            <TableHead>Category</TableHead>
+                                            {/* <TableHead>Revenue</TableHead>
+                                            <TableHead>Orders</TableHead> */}
+                                        </TableRow>
+                                    </TableHeader>
+                                    <TableBody>
+                                        {topCategories.length > 0 ? (
+                                            topCategories.map((category, index) => (
+                                                <TableRow key={index}>
+                                                    <TableCell>{category.name}</TableCell>
+                                                    {/* <TableCell>₹{category.value.toLocaleString()}</TableCell> */}
+                                                    {/* <TableCell>{category.orders}</TableCell> */}
+                                                </TableRow>
+                                            ))
+                                        ) : (
+                                            <TableRow>
+                                                <TableCell colSpan={3} className="text-center">No data available</TableCell>
+                                            </TableRow>
+                                        )}
+                                    </TableBody>
+                                </Table>
+                            </div>
+
+                            <div className="bg-white rounded-lg shadow p-6 overflow-auto max-h-[600px]">
+                                <h2 className="text-xl font-semibold mb-4">Top Products</h2>
+                                <Table>
+                                    <TableHeader className="sticky top-0 bg-white">
+                                        <TableRow>
+                                            <TableHead>Product</TableHead>
+                                            {/* <TableHead>Revenue</TableHead> */}
+                                            {/* <TableHead>Units Sold</TableHead> */}
+                                        </TableRow>
+                                    </TableHeader>
+                                    <TableBody>
+                                        {topProducts.length > 0 ? (
+                                            topProducts.map((product, index) => (
+                                                <TableRow key={index}>
+                                                    <TableCell>{product.name}</TableCell>
+                                                    {/* <TableCell>₹{product.value.toLocaleString()}</TableCell> */}
+                                                    {/* <TableCell>{product.quantity}</TableCell> */}
+                                                </TableRow>
+                                            ))
+                                        ) : (
+                                            <TableRow>
+                                                <TableCell colSpan={3} className="text-center">No data available</TableCell>
+                                            </TableRow>
+                                        )}
+                                    </TableBody>
+                                </Table>
+                            </div>
+
+                            <div className="bg-white rounded-lg shadow p-6 overflow-auto max-h-[600px]">
+                                <h2 className="text-xl font-semibold mb-4">Top Brands</h2>
+                                <Table>
+                                    <TableHeader className="sticky top-0 bg-white">
+                                        <TableRow>
+                                            <TableHead>Brand</TableHead>
+                                            {/* <TableHead>Revenue</TableHead>
+                                            <TableHead>Market Share</TableHead> */}
+                                        </TableRow>
+                                    </TableHeader>
+                                    <TableBody>
+                                        {topBrands.length > 0 ? (
+                                            topBrands.map((brand, index) => (
+                                                <TableRow key={index}>
+                                                    <TableCell>{brand.name}</TableCell>
+                                                    {/* <TableCell>₹{brand.value.toLocaleString()}</TableCell>
+                                                    <TableCell>{brand.marketShare}%</TableCell> */}
+                                                </TableRow>
+                                            ))
+                                        ) : (
+                                            <TableRow>
+                                                <TableCell colSpan={3} className="text-center">No data available</TableCell>
+                                            </TableRow>
+                                        )}
+                                    </TableBody>
+                                </Table>
+                            </div>
                         </div>
                     </div>
 
@@ -306,15 +393,14 @@ export default function Dashboard() {
                                             <TableCell>{transaction._id}</TableCell>
                                             <TableCell>Order #{transaction.orderId}</TableCell>
                                             <TableCell>
-                                                <span className={`px-2 py-1 ${
-                                                    transaction.status === 'Cancelled' 
+                                                <span className={`px-2 py-1 ${transaction.status === 'Cancelled'
                                                         ? 'bg-red-100 text-red-800'
                                                         : transaction.status === 'Returned' || transaction.status === 'Refunded'
                                                             ? 'bg-orange-100 text-orange-800'
                                                             : 'bg-green-100 text-green-800'
-                                                } rounded-full text-xs`}>
-                                                    {transaction.status === 'Cancelled' 
-                                                        ? '—' 
+                                                    } rounded-full text-xs`}>
+                                                    {transaction.status === 'Cancelled'
+                                                        ? '—'
                                                         : transaction.status === 'Returned' || transaction.status === 'Refunded'
                                                             ? 'REFUND'
                                                             : 'CREDIT'}
@@ -322,10 +408,10 @@ export default function Dashboard() {
                                             </TableCell>
                                             <TableCell>
                                                 <span className={
-                                                    transaction.status === 'Cancelled' || 
-                                                    transaction.status === 'Returned' || 
-                                                    transaction.status === 'Refunded'
-                                                        ? 'text-red-600' 
+                                                    transaction.status === 'Cancelled' ||
+                                                        transaction.status === 'Returned' ||
+                                                        transaction.status === 'Refunded'
+                                                        ? 'text-red-600'
                                                         : 'text-gray-900'
                                                 }>
                                                     ₹{transaction.amount.toLocaleString()}
@@ -333,15 +419,14 @@ export default function Dashboard() {
                                             </TableCell>
                                             <TableCell>{transaction.paymentMethod}</TableCell>
                                             <TableCell>
-                                                <span className={`px-2 py-1 rounded-full text-xs ${
-                                                    transaction.status === 'Cancelled' 
+                                                <span className={`px-2 py-1 rounded-full text-xs ${transaction.status === 'Cancelled'
                                                         ? 'bg-red-100 text-red-800'
                                                         : transaction.status === 'Returned' || transaction.status === 'Refunded'
                                                             ? 'bg-orange-100 text-orange-800'
                                                             : transaction.status === 'Delivered'
                                                                 ? 'bg-green-100 text-green-800'
                                                                 : 'bg-yellow-100 text-yellow-800'
-                                                }`}>
+                                                    }`}>
                                                     {transaction.status}
                                                 </span>
                                             </TableCell>
@@ -349,17 +434,17 @@ export default function Dashboard() {
                                     ))}
                                 </TableBody>
                             </Table>
-                            
+
                             <div className="mt-4 flex justify-center">
                                 <Pagination>
                                     <PaginationContent>
                                         <PaginationItem>
-                                            <PaginationPrevious 
+                                            <PaginationPrevious
                                                 onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
                                                 disabled={currentPage === 1}
                                             />
                                         </PaginationItem>
-                                        
+
                                         {[...Array(totalPages)].map((_, index) => (
                                             <PaginationItem key={index + 1}>
                                                 <PaginationLink
