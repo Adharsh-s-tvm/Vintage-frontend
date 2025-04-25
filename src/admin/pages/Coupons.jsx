@@ -75,6 +75,12 @@ function Coupons() {
         return;
       }
 
+      // Add validation for discount value
+      if (Number(formData.discountValue) <= 0) {
+        toast.error('Discount value must be greater than 0');
+        return;
+      }
+
       const formattedData = {
         ...formData,
         discountValue: Number(formData.discountValue),
