@@ -376,7 +376,7 @@ export default function Dashboard() {
                                 <TableHeader>
                                     <TableRow>
                                         <TableHead>Date</TableHead>
-                                        <TableHead>Transaction ID</TableHead>
+                                        {/* <TableHead>Transaction ID</TableHead> */}
                                         <TableHead>Description</TableHead>
                                         <TableHead>Type</TableHead>
                                         <TableHead>Amount</TableHead>
@@ -390,7 +390,7 @@ export default function Dashboard() {
                                             <TableCell>
                                                 {new Date(transaction.createdAt).toLocaleDateString()}
                                             </TableCell>
-                                            <TableCell>{transaction._id}</TableCell>
+                                            {/* <TableCell>{transaction._id}</TableCell> */}
                                             <TableCell>Order #{transaction.orderId}</TableCell>
                                             <TableCell>
                                                 <span className={`px-2 py-1 ${transaction.status === 'Cancelled'
