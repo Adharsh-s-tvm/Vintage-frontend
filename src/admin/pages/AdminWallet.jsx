@@ -112,7 +112,7 @@ function AdminWallet() {
   return (
 
       <div className="p-6">
-      <div className="flex justify-between items-center mb-6">
+      {/* <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Wallet Transactions</h1>
         <div className="bg-white p-4 rounded-lg shadow">
           <p className="text-sm text-gray-600">Total Wallet Amount</p>
@@ -120,7 +120,7 @@ function AdminWallet() {
             ₹{totalWalletAmount.toFixed(2)}
           </p>
         </div>
-      </div>
+      </div> */}
       
       <Table
         columns={columns}
