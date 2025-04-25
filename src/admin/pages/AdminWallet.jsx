@@ -63,11 +63,11 @@ function AdminWallet() {
   };
 
   const columns = [
-    {
-      title: 'Transaction ID',
-      dataIndex: 'transactionId',
-      key: 'transactionId',
-    },
+    // {
+    //   title: 'Transaction ID',
+    //   dataIndex: 'transactionId',
+    //   key: 'transactionId',
+    // },
     {
       title: 'Date',
       dataIndex: 'date',
